@@ -13,6 +13,21 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  transition: grid-template-columns 0.3s ease;
+}
+
+.app-container.sidebar-hidden {
+  grid-template-areas:
+    "header"
+    "content";
+  grid-template-columns: 1fr;
+}
+
+.app-container.sidebar-hidden header,
+.app-container.sidebar-hidden .filter-bar,
+.app-container.sidebar-hidden .gallery-section,
+.app-container.sidebar-hidden .player {
+  width: 100%;
 }
 
 .content-area {
@@ -25,7 +40,7 @@
 header {
   grid-area: header;
   background-color: lightblue;
-  padding: 10px;
+  padding: 30px;
 }
 
 .sidebar {
@@ -36,6 +51,15 @@ header {
   flex-direction: column;
   height: 100%;
   overflow-y: auto;
+  transition: all 0.3s ease;
+}
+
+.sidebar:not(.open) {
+  display: none;
+}
+
+.sidebar.open {
+  display: flex;
 }
 
 .sidebar-section {
@@ -111,6 +135,18 @@ header {
   overflow-y: auto;
 }
 
+.player {
+  background-color: #e8e8e8;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  font-size: 16px;
+  text-align: center;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Responsive basique */
 @media (max-width: 768px) {
   .app-container {
@@ -120,39 +156,56 @@ header {
     grid-template-columns: 1fr;
   }
 
+  .app-container.sidebar-hidden {
+    grid-template-areas:
+      "header"
+      "content";
+    grid-template-columns: 1fr;
+  }
+
   .sidebar {
-    display: none; /* Masqué sur mobile */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 60%;
+    height: 100vh;
+    z-index: 1000;
+    background-color: lightcoral;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .sidebar:not(.open) {
+    display: flex; /* Override desktop display:none for mobile */
+    transform: translateX(-100%);
   }
 
   .sidebar.open {
     display: flex;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 80%;
-    height: 100vh;
-    z-index: 1000;
-    background-color: lightcoral;
+    transform: translateX(0);
   }
 }
 
 /* Menu button */
 .menu-button {
   position: fixed;
-  top: 10px;
-  left: 10px;
+  top: 15px;
+  left: 15px;
   z-index: 1001;
   background-color: #333;
   color: white;
   border: none;
-  padding: 10px;
-  border-radius: 4px;
+  padding: 12px 15px;
+  border-radius: 6px;
   cursor: pointer;
-  display: none;
+  display: block;
+  font-size: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
 }
 
-@media (max-width: 768px) {
-  .menu-button {
-    display: block;
-  }
+.menu-button:hover {
+  background-color: #555;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }

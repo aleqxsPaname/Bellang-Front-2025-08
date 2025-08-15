@@ -11,13 +11,13 @@ const App: React.FC = () => {
   const [selectedSlide, setSelectedSlide] = useState<number | null>(null);
 
   return (
-    <div className="app-container">
+    <div className={`app-container ${!menuOpen ? "sidebar-hidden" : ""}`}>
       <Header />
       <Sidebar isOpen={menuOpen} />
       <div className="content-area">
         <FilterBar />
-        <GallerySection onSelect={setSelectedSlide} />
         <Player selected={selectedSlide} />
+        <GallerySection onSelect={setSelectedSlide} />
       </div>
 
       <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)}>
