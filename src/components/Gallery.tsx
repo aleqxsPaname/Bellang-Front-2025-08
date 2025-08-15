@@ -1,10 +1,10 @@
 import React from "react";
 
-type GallerySectionProps = {
+type GalleryProps = {
   onSelect: (id: number) => void;
 };
 
-const GallerySection: React.FC<GallerySectionProps> = ({ onSelect }) => {
+const Gallery: React.FC<GalleryProps> = ({ onSelect }) => {
   const galleryItems: number[] = Array.from({ length: 8 }, (_, i) => i + 1);
 
   return (
@@ -25,4 +25,4 @@ const GallerySection: React.FC<GallerySectionProps> = ({ onSelect }) => {
   );
 };
 
-export default GallerySection;
+export default Gallery;

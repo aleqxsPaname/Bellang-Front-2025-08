@@ -1,5 +1,10 @@
 /* App.css */
 
+/* Variables CSS */
+:root {
+  --header-height: 90px; /* Hauteur approximative du header avec padding */
+}
+
 /* Layout principal */
 .app-container {
   display: grid;
@@ -41,6 +46,8 @@ header {
   grid-area: header;
   background-color: lightblue;
   padding: 30px;
+  position: relative;
+  z-index: 1001;
 }
 
 .sidebar {
@@ -165,10 +172,12 @@ header {
 
   .sidebar {
     position: fixed;
-    top: 0;
+    top: var(--header-height); /* Commence sous le header */
     left: 0;
     width: 60%;
-    height: 100vh;
+    height: calc(
+      100vh - var(--header-height)
+    ); /* Hauteur ajustée pour exclure le header */
     z-index: 1000;
     background-color: lightcoral;
     transform: translateX(-100%);
