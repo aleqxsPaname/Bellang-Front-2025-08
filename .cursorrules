@@ -1,0 +1,131 @@
+# Règles Cursor pour projet React TypeScript
+
+## Préférences de développement React
+
+### Langage et Framework
+- Toujours utiliser TypeScript (fichiers .tsx pour les composants React)
+- Utiliser TailwindCSS pour le style
+- Composants fonctionnels uniquement (pas de classes React)
+- Utiliser React Hooks au lieu des lifecycle methods
+
+### Types et Qualité du Code
+- Toujours ajouter des types explicites (pas de `any`)
+- Utiliser ESLint avec les règles strictes recommandées
+- Nommer les composants en PascalCase
+- Respecter les standards d'accessibilité WAI-ARIA
+
+### Tests et Performance
+- Écrire des tests avec React Testing Library + Jest
+- Utiliser le lazy loading (`React.lazy`) pour les imports lourds
+- Optimiser les images avec next/image ou équivalent
+
+## Instructions pour l'IA
+
+Quand tu écris du code React :
+
+1. **TypeScript strict** : Utilise toujours des types explicites, évite `any` à tout prix
+2. **Composants fonctionnels** : Utilise uniquement des fonctions, jamais de classes
+3. **TailwindCSS** : Style tous les composants avec Tailwind, pas de CSS-in-JS
+4. **Hooks** : Utilise useState, useEffect, useCallback, useMemo selon les besoins
+5. **Accessibilité** : Ajoute les attributs ARIA appropriés (aria-label, role, etc.)
+6. **Tests** : Crée des tests avec @testing-library/react pour chaque composant
+7. **Performance** : Utilise React.lazy pour les gros composants et React.memo quand nécessaire
+8. **Images** : Utilise next/image ou un équivalent optimisé
+
+## Exemple de structure de composant
+
+```tsx
+import React, { useState, useCallback } from 'react';
+
+interface ButtonProps {
+  children: React.ReactNode;
+  onClick: () => void;
+  variant?: 'primary' | 'secondary';
+  disabled?: boolean;
+  'aria-label'?: string;
+}
+
+const Button: React.FC<ButtonProps> = ({ 
+  children, 
+  onClick, 
+  variant = 'primary',
+  disabled = false,
+  'aria-label': ariaLabel 
+}) => {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const handleClick = useCallback(() => {
+    if (!disabled && !isLoading) {
+      onClick();
+    }
+  }, [onClick, disabled, isLoading]);
+
+  const baseClasses = 'px-4 py-2 rounded-md font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2';
+  const variantClasses = variant === 'primary' 
+    ? 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500' 
+    : 'bg-gray-200 text-gray-900 hover:bg-gray-300 focus:ring-gray-500';
+  const disabledClasses = disabled ? 'opacity-50 cursor-not-allowed' : '';
+
+  return (
+    <button
+      type="button"
+      className={`${baseClasses} ${variantClasses} ${disabledClasses}`}
+      onClick={handleClick}
+      disabled={disabled}
+      aria-label={ariaLabel}
+      aria-disabled={disabled}
+    >
+      {children}
+    </button>
+  );
+};
+
+export default Button;
+```
+
+## ESLint Rules recommandées
+
+```json
+{
+  "extends": [
+    "@typescript-eslint/recommended",
+    "@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended"
+  ],
+  "rules": {
+    "@typescript-eslint/no-any": "error",
+    "@typescript-eslint/explicit-function-return-type": "error",
+    "react/function-component-definition": ["error", { "namedComponents": "arrow-function" }],
+    "jsx-a11y/anchor-is-valid": "error"
+  }
+}
+```
+
+## Structure de test recommandée
+
+```tsx
+import { render, screen, fireEvent } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import Button from './Button';
+
+describe('Button Component', () => {
+  test('renders with correct text', () => {
+    render(<Button onClick={() => {}}>Click me</Button>);
+    expect(screen.getByRole('button', { name: /click me/i })).toBeInTheDocument();
+  });
+
+  test('calls onClick when clicked', async () => {
+    const handleClick = jest.fn();
+    const user = userEvent.setup();
+    
+    render(<Button onClick={handleClick}>Click me</Button>);
+    
+    await user.click(screen.getByRole('button'));
+    expect(handleClick).toHaveBeenCalledTimes(1);
+  });
+});
+```
+
+Respecte ces règles dans tous les fichiers React TypeScript que tu génères.
