@@ -1,4 +1,5 @@
 import React from "react";
+import Miniature from "./Miniature.tsx";
 
 type GalleryProps = {
   onSelect: (id: number) => void;
@@ -12,13 +13,11 @@ const Gallery: React.FC<GalleryProps> = ({ onSelect }) => {
       <div className="gallery-title">Sélectionnez un diaporama</div>
       <div className="gallery-grid">
         {galleryItems.map((item) => (
-          <div
+          <Miniature
             key={item}
-            className="gallery-item"
+            title={`Miniature ${item}`}
             onClick={() => onSelect(item)}
-          >
-            Miniature {item}
-          </div>
+          />
         ))}
       </div>
     </div>
