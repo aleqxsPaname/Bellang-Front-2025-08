@@ -23,8 +23,8 @@ html {
     "header header"
     "sidebar content";
   grid-template-columns: 250px 1fr; /* Sidebar fixe à 250px, contenu prend le reste */
-  grid-template-rows: auto 1fr;
-  height: 100vh;
+  grid-template-rows: auto auto; /* Changé de 'auto 1fr' à 'auto auto' pour permettre le scroll global */
+  min-height: 100vh; /* Changé de 'height' à 'min-height' pour permettre au contenu de grandir */
   width: 100%;
   max-width: 100vw;
   margin: 0;
@@ -54,6 +54,7 @@ html {
   flex-direction: column;
   min-width: 0;
   overflow-x: hidden;
+  /* Retiré overflow-y pour permettre le scroll global */
 }
 
 /* Zones */
@@ -74,8 +75,8 @@ header {
   padding: 10px;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  overflow-y: auto;
+  min-height: 100vh; /* Changé de height: 100% pour s'adapter au contenu */
+  overflow-y: visible; /* Changé de auto à visible pour le scroll global */
   transition: all 0.3s ease;
 }
 
@@ -215,8 +216,7 @@ header {
 .main {
   background-color: lightgray;
   padding: 10px;
-  flex: 1;
-  overflow-y: auto;
+  /* Retiré flex: 1 et overflow-y: auto pour permettre le scroll global */
   overflow-x: hidden;
   width: 100%;
   max-width: 100%;
@@ -289,6 +289,7 @@ header {
       "header"
       "content";
     grid-template-columns: 1fr;
+    grid-template-rows: auto auto; /* Assurer que le comportement reste cohérent */
   }
 
   .app-container.sidebar-hidden {
@@ -296,6 +297,7 @@ header {
       "header"
       "content";
     grid-template-columns: 1fr;
+    grid-template-rows: auto auto; /* Assurer que le comportement reste cohérent */
   }
 
   .sidebar {

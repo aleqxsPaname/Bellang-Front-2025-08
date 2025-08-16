@@ -16,13 +16,13 @@ const App: React.FC = () => {
       <Header />
       <Sidebar isOpen={menuOpen} />
       <div className="content-area">
-        <FilterBar
-          selectedFilter={selectedFilter}
-          onFilterSelect={setSelectedFilter}
-        />
         <Player
           selected={selectedSlide}
           onClose={() => setSelectedSlide(null)}
+        />
+        <FilterBar
+          selectedFilter={selectedFilter}
+          onFilterSelect={setSelectedFilter}
         />
         <Gallery onSelect={setSelectedSlide} selectedFilter={selectedFilter} />
       </div>
