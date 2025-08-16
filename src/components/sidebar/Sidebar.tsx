@@ -1,16 +1,13 @@
 import React from "react";
+import listeFavoritesData from "../../data/listeFavoritesData.json";
 
 type SidebarProps = {
   isOpen: boolean;
 };
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
-  const listesFavoris = [
-    "architecture gothique",
-    "economistes 19s",
-    "economistes 20s",
-  ];
-  const filtresFavoris = ["Histoire", "People", "Voyages"];
+  const listesFavoris: string[] = listeFavoritesData.listesFavorites;
+  const filtresFavoris: string[] = ["Histoire", "People", "Voyages"];
 
   //////////////////////////////////////////////////////
   return (
