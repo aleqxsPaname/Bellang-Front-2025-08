@@ -191,6 +191,15 @@ header {
 @media (max-width: 480px) {
   .gallery-grid {
     grid-template-columns: 1fr;
+    padding: 0 5px; /* Réduire le padding horizontal pour plus d'espace */
+  }
+
+  .gallery-section {
+    padding: 10px 5px; /* Réduire le padding de la section */
+  }
+
+  .gallery-item {
+    width: 100% !important; /* Miniatures plus larges en mobile avec !important */
   }
 }
 

@@ -5,6 +5,14 @@ type SidebarProps = {
 };
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
+  const listesFavoris = [
+    "architecture gothique",
+    "economistes 19s",
+    "economistes 20s",
+  ];
+  const filtresFavoris = ["Histoire", "People", "Voyages"];
+
+  //////////////////////////////////////////////////////
   return (
     <aside className={`sidebar ${isOpen ? "open" : ""}`}>
       <div className="sidebar-section">
@@ -12,13 +20,18 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
           <li>Mes Parametres</li>
           <li>Historique</li>
           <li>Abonnements</li>
-          <li>Mes filtres favoris</li>
-          <li>Favoris 3</li>
-          <li>Favoris 4</li>
-          <li>Favoris 5</li>
-          <li>Favoris 6</li>
-          <li>Favoris 7</li>
-          <li>Favoris 8</li>
+          <li>----------------</li>
+          <li>Mes Listes favorites</li>
+          {listesFavoris.map((favori, index) => (
+            <li key={index}>- {favori}</li>
+          ))}
+          <li>(Gerer les listes)</li>
+          <li>----------------</li>
+          <li>Mes Filtres favoris</li>
+          {filtresFavoris.map((favori, index) => (
+            <li key={index}>- {favori}</li>
+          ))}
+          <li>(Gerer les filtres)</li>
         </ul>
       </div>
     </aside>

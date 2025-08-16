@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import Header from "./components/header/Header.tsx";
 import Sidebar from "./components/sidebar/Sidebar.tsx";
@@ -10,6 +10,22 @@ const App: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const [selectedSlide, setSelectedSlide] = useState<number | null>(null);
   const [selectedFilter, setSelectedFilter] = useState<string>("");
+
+  // Auto-scroll vers le Player quand une miniature est sélectionnée
+  useEffect(() => {
+    if (selectedSlide !== null) {
+      // Délai de 100ms pour laisser le Player s'afficher
+      setTimeout(() => {
+        const playerElement = document.querySelector(".player");
+        if (playerElement) {
+          playerElement.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      }, 100);
+    }
+  }, [selectedSlide]);
 
   return (
     <div className={`app-container ${!menuOpen ? "sidebar-hidden" : ""}`}>
