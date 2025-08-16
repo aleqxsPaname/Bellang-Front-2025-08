@@ -9,15 +9,22 @@ import Gallery from "./components/Gallery.tsx";
 const App: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const [selectedSlide, setSelectedSlide] = useState<number | null>(null);
+  const [selectedFilter, setSelectedFilter] = useState<string>("");
 
   return (
     <div className={`app-container ${!menuOpen ? "sidebar-hidden" : ""}`}>
       <Header />
       <Sidebar isOpen={menuOpen} />
       <div className="content-area">
-        <FilterBar />
-        <Player selected={selectedSlide} />
-        <Gallery onSelect={setSelectedSlide} />
+        <FilterBar
+          selectedFilter={selectedFilter}
+          onFilterSelect={setSelectedFilter}
+        />
+        <Player
+          selected={selectedSlide}
+          onClose={() => setSelectedSlide(null)}
+        />
+        <Gallery onSelect={setSelectedSlide} selectedFilter={selectedFilter} />
       </div>
 
       <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)}>

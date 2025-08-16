@@ -1,11 +1,33 @@
 import React from "react";
+import Filtre from "./Filtre.tsx";
 
-const FilterBar: React.FC = () => {
+type FilterBarProps = {
+  selectedFilter: string;
+  onFilterSelect: (filterName: string) => void;
+};
+
+const FilterBar: React.FC<FilterBarProps> = ({
+  selectedFilter,
+  onFilterSelect,
+}) => {
+  const filters = [
+    "Bande dessinée",
+    "Prepa HEC",
+    "Histoire",
+    "People",
+    "Voyages",
+  ];
+
   return (
     <div className="filter-bar">
-      <button>Filtre 1</button>
-      <button>Filtre 2</button>
-      <button>Filtre 3</button>
+      {filters.map((filterName) => (
+        <Filtre
+          key={filterName}
+          name={filterName}
+          onClick={() => onFilterSelect(filterName)}
+          isActive={selectedFilter === filterName}
+        />
+      ))}
     </div>
   );
 };
