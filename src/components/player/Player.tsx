@@ -6,27 +6,23 @@ type PlayerProps = {
 };
 
 const Player: React.FC<PlayerProps> = ({ selected, onClose }) => {
-  const getText = (value: number | null): string => {
+  const getText = (value: number | null) => {
     return value
       ? `Diaporama en cours : ${value}`
       : "Aucun diaporama n'est sélectionné";
   };
 
-  const getClassName = (value: number | null): string => {
+  const getClassName = (value: number | null) => {
     return value ? "player" : "player-hidden";
   };
 
   return (
     <div className={getClassName(selected)}>
-      {selected ? (
-        <>
-          <p>{getText(selected)}</p>
-          <button className="boutonFermer" onClick={onClose}>
-            X
-          </button>
-        </>
-      ) : (
-        <p style={{ opacity: 0, userSelect: "none" }}>{getText(selected)}</p>
+      <p>{getText(selected)}</p>
+      {selected && (
+        <button className="boutonFermer" onClick={onClose}>
+          X
+        </button>
       )}
     </div>
   );

@@ -5,6 +5,17 @@
   --header-height: 90px; /* Hauteur approximative du header avec padding */
 }
 
+/* Reset général pour éviter les problèmes d'overflow */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+}
+
 /* Layout principal */
 .app-container {
   display: grid;
@@ -14,10 +25,12 @@
   grid-template-columns: 250px 1fr; /* Sidebar fixe à 250px, contenu prend le reste */
   grid-template-rows: auto 1fr;
   height: 100vh;
-  width: 100vw; /* toute la largeur de l'écran */
+  width: 100%;
+  max-width: 100vw;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow-x: hidden;
   transition: grid-template-columns 0.3s ease;
 }
 
@@ -39,6 +52,8 @@
   grid-area: content;
   display: flex;
   flex-direction: column;
+  min-width: 0;
+  overflow-x: hidden;
 }
 
 /* Zones */
@@ -48,6 +63,9 @@ header {
   padding: 30px;
   position: relative;
   z-index: 1001;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .sidebar {
@@ -94,6 +112,10 @@ header {
   background-color: #f5f5f5;
   padding: 15px;
   border-bottom: 1px solid #ddd;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .gallery-title {
@@ -157,6 +179,9 @@ header {
   align-items: center;
   flex-wrap: wrap;
   overflow-x: auto;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .filtre-item {
@@ -192,6 +217,10 @@ header {
   padding: 10px;
   flex: 1;
   overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .player {
@@ -201,11 +230,35 @@ header {
   border-bottom: 1px solid #ddd;
   font-size: 16px;
   text-align: center;
-  min-height: 460px;
+  height: 460px; /* Hauteur fixe au lieu de min-height */
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  transition: all 0.3s ease;
+}
+
+.player-hidden {
+  background-color: transparent; /* Transparent quand caché */
+  color: transparent; /* Texte transparent */
+  padding: 15px;
+  border-bottom: none; /* Pas de bordure quand caché */
+  font-size: 16px;
+  text-align: center;
+  height: 60px; /* Hauteur minimale pour conserver l'espace */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  transition: all 0.3s ease;
 }
 
 .boutonFermer {
@@ -220,25 +273,13 @@ header {
   font-size: 14px;
   cursor: pointer;
   transition: all 0.2s ease;
+  opacity: 1;
 }
 
 .boutonFermer:hover {
   background-color: rgba(255, 255, 255, 0.3);
   border-color: rgba(255, 255, 255, 0.5);
   transform: scale(1.05);
-}
-
-.player-hidden {
-  background-color: #800a97;
-  color: white;
-  padding: 15px;
-  border-bottom: 1px solid #ddd;
-  font-size: 16px;
-  text-align: center;
-  max-height: 0px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 /* Responsive basique */
