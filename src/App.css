@@ -36,9 +36,7 @@ header {
   padding: 15px !important;
 }
 
-.filter-bar {
-  padding: 10px !important;
-}
+/* Retiré le padding global avec !important pour permettre les media queries */
 
 /* Layout principal */
 .app-container {
@@ -231,27 +229,142 @@ header {
   padding: 10px;
   border-bottom: 1px solid #ddd;
   display: flex;
-  gap: 10px;
+  gap: 12px; /* Légèrement augmenté pour plus d'air */
   align-items: center;
-  flex-wrap: wrap;
-  overflow-x: auto;
+  /* Retiré flex-wrap: wrap pour forcer une seule ligne */
+  overflow-x: auto; /* Scroll horizontal comme YouTube */
+  overflow-y: hidden; /* Pas de scroll vertical */
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
-  margin: 0; /* Éliminer toute marge */
+  margin: 0;
+  /* Style de scrollbar comme YouTube */
+  scrollbar-width: none; /* cache la scrollbar sur Firefox */
+  scrollbar-color: #c1c1c1 transparent;
+  -webkit-overflow-scrolling: touch; /* Smooth scroll sur mobile */
+}
+
+/* Marges sur desktop seulement pour éviter la superposition avec les boutons */
+@media (min-width: 769px) {
+  .filter-bar {
+    padding: 10px 60px !important; /* Marges pour les boutons sur desktop */
+  }
+}
+
+/* Padding normal sur mobile et tablette - scroll tactile/molette disponible */
+@media (max-width: 768px) {
+  .filter-bar {
+    padding: 10px !important; /* Padding normal sans marges */
+  }
+}
+
+/* Scrollbar style pour WebKit (Chrome, Safari) */
+.filter-bar::-webkit-scrollbar {
+  height: 6px;
+}
+
+.filter-bar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.filter-bar::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.filter-bar::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
+}
+
+/* Container wrapper pour la FilterBar avec boutons */
+.filter-bar-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Boutons de scroll style YouTube */
+.scroll-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.2s ease;
+  opacity: 0;
+  animation: fadeIn 0.2s ease forwards;
+}
+
+.scroll-button:hover {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.scroll-button-left {
+  left: 8px;
+}
+
+.scroll-button-right {
+  right: 8px;
+}
+
+.scroll-button-icon {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  line-height: 1;
+}
+
+/* Animation d'apparition */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+}
+
+/* Masquer les boutons sur mobile et tablette */
+@media (max-width: 768px) {
+  .scroll-button {
+    display: none !important;
+  }
+}
+
+/* Afficher les boutons seulement sur desktop */
+@media (min-width: 769px) {
+  .scroll-button {
+    display: flex;
+  }
 }
 
 .filtre-item {
   background-color: #f0f0f0;
   border: 1px solid #ccc;
-  padding: 8px 16px;
-  border-radius: 4px;
+  padding: 6px 12px; /* Réduit de 8px 16px à 6px 12px */
+  border-radius: 8px; /* Plus arrondi comme YouTube */
   cursor: pointer;
-  font-size: 14px;
+  font-size: 12px; /* Réduit de 14px à 12px */
+  font-weight: 500; /* Légèrement plus bold */
   transition: all 0.2s ease;
-  white-space: nowrap;
-  width: auto;
-  flex-shrink: 0;
+  white-space: nowrap; /* Empêche le retour à la ligne */
+  flex-shrink: 0; /* Empêche la compression */
+  min-width: fit-content; /* Largeur minimale basée sur le contenu */
+  user-select: none; /* Empêche la sélection du texte */
 }
 
 .filtre-item:hover {
