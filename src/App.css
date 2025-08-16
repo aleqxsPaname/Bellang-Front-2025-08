@@ -243,22 +243,7 @@ header {
 }
 
 .player-hidden {
-  background-color: transparent; /* Transparent quand caché */
-  color: transparent; /* Texte transparent */
-  padding: 15px;
-  border-bottom: none; /* Pas de bordure quand caché */
-  font-size: 16px;
-  text-align: center;
-  height: 60px; /* Hauteur minimale pour conserver l'espace */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-  overflow-x: hidden;
-  transition: all 0.3s ease;
+  display: none; /* Disparition complète du Player */
 }
 
 .boutonFermer {

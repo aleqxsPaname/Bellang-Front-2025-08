@@ -6,13 +6,13 @@ type PlayerProps = {
 };
 
 const Player: React.FC<PlayerProps> = ({ selected, onClose }) => {
-  const getText = (value: number | null) => {
+  const getText = (value: number | null): string => {
     return value
       ? `Diaporama en cours : ${value}`
       : "Aucun diaporama n'est sélectionné";
   };
 
-  const getClassName = (value: number | null) => {
+  const getClassName = (value: number | null): string => {
     return value ? "player" : "player-hidden";
   };
 
