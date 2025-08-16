@@ -9,10 +9,10 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
     <aside className={`sidebar ${isOpen ? "open" : ""}`}>
       <div className="sidebar-section">
         <ul className="sidebar-menu">
-          <li>Abonnements</li>
+          <li>Mes Parametres</li>
           <li>Historique</li>
-          <li>Favoris 1</li>
-          <li>Favoris 2</li>
+          <li>Abonnements</li>
+          <li>Mes filtres favoris</li>
           <li>Favoris 3</li>
           <li>Favoris 4</li>
           <li>Favoris 5</li>
