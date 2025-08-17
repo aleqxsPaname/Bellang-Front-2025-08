@@ -242,6 +242,8 @@ header {
   scrollbar-width: none; /* cache la scrollbar sur Firefox */
   scrollbar-color: #c1c1c1 transparent;
   -webkit-overflow-scrolling: touch; /* Smooth scroll sur mobile */
+
+  user-select: none; /* Empêche la sélection de texte pendant le drag */
 }
 
 /* Marges sur desktop seulement pour éviter la superposition avec les boutons */
