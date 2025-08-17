@@ -1,13 +1,14 @@
 import React from "react";
 import Miniature from "./Miniature.tsx";
-import listeDiaporama from "../../data/listeDiaporama.json";
+import listeDiaporama from "../../data/diaporamas/listeDiaporama.json";
+import type { Diaporama } from "../../data/diaporamas/diaporama";
 
 type GalleryProps = {
   onSelect: (id: number) => void;
   selectedFilter: string;
 };
 
-const diaporamaItems = listeDiaporama.liste_diaporama;
+const diaporamaItems: Diaporama[] = listeDiaporama.liste_diaporama;
 
 const Gallery: React.FC<GalleryProps> = ({ onSelect, selectedFilter }) => {
   return (
@@ -19,7 +20,7 @@ const Gallery: React.FC<GalleryProps> = ({ onSelect, selectedFilter }) => {
         {diaporamaItems.map((item) => (
           <Miniature
             key={item.id}
-            title={item.titre}
+            diaporama={item as Diaporama}
             onClick={() => onSelect(item.id)}
           />
         ))}
