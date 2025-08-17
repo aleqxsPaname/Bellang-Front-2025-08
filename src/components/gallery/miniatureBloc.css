@@ -115,6 +115,7 @@
   .gallery-item {
     width: 99% !important;
     padding: 0; /* Supprimer le padding en mobile */
+    height: 280px; /* Augmenter la hauteur totale en mobile (240px → 280px) */
   }
 
   .text-miniature {
