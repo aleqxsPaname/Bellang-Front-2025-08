@@ -76,6 +76,38 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  flex-shrink: 0; /* Empêcher la date de se rétrécir */
+  min-width: fit-content; /* Largeur minimale basée sur le contenu */
+}
+
+/* Ligne contenant la date et les hashtags */
+.date-hashtags-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: nowrap; /* Forcer à rester sur une seule ligne */
+  overflow: hidden; /* Cacher le débordement */
+}
+
+/* Container des hashtags sur la même ligne que la date */
+.hashtags-container {
+  display: flex;
+  flex-wrap: nowrap; /* Forcer à rester sur une seule ligne */
+  gap: 4px;
+  margin: 0; /* Pas de marge car on utilise gap dans le parent */
+  overflow: hidden; /* Cacher le débordement */
+}
+
+/* Style des hashtags individuels */
+.hashtag-item {
+  background-color: #f0f0f0;
+  color: #5e5c5c;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 3px;
+  white-space: nowrap;
+  line-height: 1.2;
 }
 
 /* Responsive mobile */
@@ -95,5 +127,10 @@
 
   .miniature-date {
     font-size: 11px;
+  }
+
+  .hashtag-item {
+    font-size: 9px;
+    padding: 1px 5px;
   }
 }

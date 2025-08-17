@@ -16,6 +16,7 @@ const Miniature: React.FC<MiniatureProps> = ({ diaporama, onClick }) => {
       <MiniatureTextBloc
         titre={diaporama.titre}
         date={diaporama.date_creation}
+        hashtags={diaporama.hashtag}
       />
     </div>
   );

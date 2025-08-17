@@ -2,7 +2,7 @@
   "liste_diaporama": [
     {
       "id": 1,
-      "titre": "Diaporama 1",
+      "titre": "Paris: ses 10 plus beaux monuments",
       "description": "Description 1",
       "date_creation": "2025-01-01",
       "nombre_slides": 10,
@@ -11,7 +11,7 @@
     },
     {
       "id": 2,
-      "titre": "Diaporama 2",
+      "titre": "France: ses 10 plus beaux chateaux",
       "description": "Description 2",
       "date_creation": "2023-01-02",
       "nombre_slides": 21,
@@ -20,7 +20,7 @@
     },
     {
       "id": 3,
-      "titre": "Diaporama 3",
+      "titre": "Paris: 10 musées à voir",
       "description": "Description 3",
       "date_creation": "2025-01-03",
       "nombre_slides": 6,
@@ -29,7 +29,7 @@
     },
     {
       "id": 4,
-      "titre": "Diaporama 4",
+      "titre": "Paris: ses 10 plus beaux parcs",
       "description": "Description 4",
       "date_creation": "2025-01-04",
       "nombre_slides": 8,

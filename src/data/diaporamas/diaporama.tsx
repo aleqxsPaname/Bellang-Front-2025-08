@@ -5,6 +5,6 @@ export type Diaporama = {
   date_creation: string;
   nombre_slides: number;
   hashtag: string[];
-  difficulty_level: string;
+  difficulty_level?: string;
   image: string;
 };
