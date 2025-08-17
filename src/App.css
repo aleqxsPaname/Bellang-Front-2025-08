@@ -205,6 +205,8 @@ header {
   .gallery-item {
     width: 99% !important; /* Miniatures plus larges en mobile avec !important */
     margin: 0 auto; /* Centrage automatique maintenu */
+    padding: 8px; /* Réduire le padding en mobile pour plus d'espace */
+    gap: 6px; /* Réduire l'espacement entre les éléments en mobile */
   }
 }
 
@@ -213,9 +215,11 @@ header {
   height: 240px;
   width: 90%;
   margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  gap: 8px;
+  align-items: start;
+  justify-items: center;
   border: 1px solid #ccc;
   cursor: pointer;
   border-radius: 4px;
@@ -223,6 +227,7 @@ header {
   text-align: center;
   transition: all 0.2s ease;
   box-sizing: border-box;
+  padding: 12px;
 }
 
 .gallery-item:hover {
