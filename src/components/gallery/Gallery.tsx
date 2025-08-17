@@ -1,25 +1,26 @@
 import React from "react";
 import Miniature from "./Miniature.tsx";
+import listeDiaporama from "../../data/listeDiaporama.json";
 
 type GalleryProps = {
   onSelect: (id: number) => void;
   selectedFilter: string;
 };
 
-const Gallery: React.FC<GalleryProps> = ({ onSelect, selectedFilter }) => {
-  const galleryItems: number[] = Array.from({ length: 8 }, (_, i) => i + 1);
+const diaporamaItems = listeDiaporama.liste_diaporama;
 
+const Gallery: React.FC<GalleryProps> = ({ onSelect, selectedFilter }) => {
   return (
     <div className="gallery-section">
       <div className="gallery-title">
         Diaporamas correspondant au filtre: {selectedFilter}
       </div>
       <div className="gallery-grid">
-        {galleryItems.map((item) => (
+        {diaporamaItems.map((item) => (
           <Miniature
-            key={item}
-            title={`Miniature ${item}`}
-            onClick={() => onSelect(item)}
+            key={item.id}
+            title={item.titre}
+            onClick={() => onSelect(item.id)}
           />
         ))}
       </div>

@@ -1,0 +1,94 @@
+{
+  "liste_diaporama": [
+    {
+      "id": 1,
+      "titre": "Diaporama 1",
+      "description": "Description 1",
+      "image": "image1.jpg"
+    },
+    {
+      "id": 2,
+      "titre": "Diaporama 2",
+      "description": "Description 2",
+      "image": "image2.jpg"
+    },
+    {
+      "id": 3,
+      "titre": "Diaporama 3",
+      "description": "Description 3",
+      "image": "image3.jpg"
+    },
+    {
+      "id": 4,
+      "titre": "Diaporama 4",
+      "description": "Description 4",
+      "image": "image4.jpg"
+    },
+    {
+      "id": 5,
+      "titre": "Diaporama 5",
+      "description": "Description 5",
+      "image": "image5.jpg"
+    },
+    {
+      "id": 6,
+      "titre": "Diaporama 6",
+      "description": "Description 6",
+      "image": "image6.jpg"
+    },
+    {
+      "id": 7,
+      "titre": "Diaporama 7",
+      "description": "Description 7",
+      "image": "image7.jpg"
+    },
+    {
+      "id": 8,
+      "titre": "Diaporama 8",
+      "description": "Description 8",
+      "image": "image8.jpg"
+    },
+    {
+      "id": 9,
+      "titre": "Diaporama 9",
+      "description": "Description 9",
+      "image": "image9.jpg"
+    },
+    {
+      "id": 10,
+      "titre": "Diaporama 10",
+      "description": "Description 10",
+      "image": "image10.jpg"
+    },
+    {
+      "id": 11,
+      "titre": "Diaporama 11",
+      "description": "Description 11",
+      "image": "image11.jpg"
+    },
+    {
+      "id": 12,
+      "titre": "Diaporama 12",
+      "description": "Description 12",
+      "image": "image12.jpg"
+    },
+    {
+      "id": 13,
+      "titre": "Diaporama 13",
+      "description": "Description 13",
+      "image": "image13.jpg"
+    },
+    {
+      "id": 14,
+      "titre": "Diaporama 14",
+      "description": "Description 14",
+      "image": "image14.jpg"
+    },
+    {
+      "id": 15,
+      "titre": "Diaporama 15",
+      "description": "Description 15",
+      "image": "image15.jpg"
+    }
+  ]
+}
