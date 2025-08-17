@@ -1,5 +1,8 @@
 import React from "react";
+import MiniatureImageBloc from "./MiniatureImageBloc";
+import MiniatureTextBloc from "./MiniatureTextBloc";
 import type { Diaporama } from "../../data/diaporamas/diaporama";
+import "./miniatureBloc.css";
 
 type MiniatureProps = {
   diaporama: Diaporama;
@@ -9,9 +12,11 @@ type MiniatureProps = {
 const Miniature: React.FC<MiniatureProps> = ({ diaporama, onClick }) => {
   return (
     <div className="gallery-item" onClick={onClick}>
-      <p>Titre: {diaporama.titre}</p>
-      <p>Description: {diaporama.description}</p>
-      <img src={diaporama.image} alt={diaporama.titre} />
+      <MiniatureImageBloc src={diaporama.image} alt={diaporama.titre} />
+      <MiniatureTextBloc
+        titre={diaporama.titre}
+        date={diaporama.date_creation}
+      />
     </div>
   );
 };

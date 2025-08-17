@@ -1,0 +1,99 @@
+/* miniatureBloc.css - Styles pour les composants de miniature */
+
+/* Conteneur principal de la miniature */
+.gallery-item {
+  background-color: #fff;
+  height: 240px;
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: 80% 20%; /* 80% image, 20% texte */
+  gap: 0;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 12px;
+  text-align: center;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  overflow: hidden; /* Pour éviter que l'image déborde */
+}
+
+.gallery-item:hover {
+  border-color: #007bff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Zone de l'image */
+.image-miniature {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.image-miniature img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Garde les proportions de l'image */
+  object-position: center; /* Centre l'image */
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .image-miniature img {
+  transform: scale(1.05); /* Effet de zoom au survol */
+}
+
+/* Zone du texte */
+.text-miniature {
+  padding: 8px 12px; /* Augmenter le padding horizontal pour éviter que le texte soit collé aux bords */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* Aligner les éléments à gauche */
+  gap: 4px;
+  background-color: #fff;
+  border-top: 1px solid #f0f0f0;
+}
+
+.miniature-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.2;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.miniature-date {
+  font-size: 12px;
+  margin: 0;
+  line-height: 1.1;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Responsive mobile */
+@media (max-width: 480px) {
+  .gallery-item {
+    width: 99% !important;
+    padding: 0; /* Supprimer le padding en mobile */
+  }
+
+  .text-miniature {
+    padding: 6px 10px; /* Réduire le padding en mobile mais garder l'alignement à gauche */
+  }
+
+  .miniature-title {
+    font-size: 13px;
+  }
+
+  .miniature-date {
+    font-size: 11px;
+  }
+}

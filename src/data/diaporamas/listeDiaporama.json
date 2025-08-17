@@ -4,91 +4,136 @@
       "id": 1,
       "titre": "Diaporama 1",
       "description": "Description 1",
-      "image": "image1.jpg"
+      "date_creation": "2025-01-01",
+      "nombre_slides": 10,
+      "hashtag": ["#hashtag1", "#hashtag2"],
+      "image": "https://picsum.photos/600/400?random=1"
     },
     {
       "id": 2,
       "titre": "Diaporama 2",
       "description": "Description 2",
-      "image": "image2.jpg"
+      "date_creation": "2023-01-02",
+      "nombre_slides": 21,
+      "hashtag": ["#voyage", "#vacances"],
+      "image": "https://picsum.photos/600/400?random=2"
     },
     {
       "id": 3,
       "titre": "Diaporama 3",
       "description": "Description 3",
-      "image": "image3.jpg"
+      "date_creation": "2025-01-03",
+      "nombre_slides": 6,
+      "hashtag": ["#ecologie", "#nature"],
+      "image": "https://picsum.photos/600/400?random=3"
     },
     {
       "id": 4,
       "titre": "Diaporama 4",
       "description": "Description 4",
-      "image": "image4.jpg"
+      "date_creation": "2025-01-04",
+      "nombre_slides": 8,
+      "hashtag": ["#france", "#paris"],
+      "image": "https://picsum.photos/600/400?random=4"
     },
     {
       "id": 5,
       "titre": "Diaporama 5",
       "description": "Description 5",
-      "image": "image5.jpg"
+      "date_creation": "2025-01-05",
+      "nombre_slides": 10,
+      "hashtag": ["#hashtag1", "#hashtag2", "#hashtag3"],
+      "image": "https://picsum.photos/600/400?random=5"
     },
     {
       "id": 6,
       "titre": "Diaporama 6",
       "description": "Description 6",
-      "image": "image6.jpg"
+      "date_creation": "2025-01-06",
+      "nombre_slides": 10,
+      "hashtag": ["#hashtag1", "#hashtag2", "#hashtag3"],
+      "image": "https://picsum.photos/600/400?random=6"
     },
     {
       "id": 7,
       "titre": "Diaporama 7",
       "description": "Description 7",
-      "image": "image7.jpg"
+      "date_creation": "2022-12-07",
+      "nombre_slides": 10,
+      "hashtag": ["#hashtag1", "#hashtag2", "#hashtag3"],
+      "image": "https://picsum.photos/600/400?random=7"
     },
     {
       "id": 8,
       "titre": "Diaporama 8",
       "description": "Description 8",
-      "image": "image8.jpg"
+      "date_creation": "2022-12-07",
+      "nombre_slides": 10,
+      "hashtag": ["#hashtag1", "#hashtag2", "#hashtag3"],
+      "image": "https://picsum.photos/600/400?random=8"
     },
     {
       "id": 9,
       "titre": "Diaporama 9",
       "description": "Description 9",
-      "image": "image9.jpg"
+      "date_creation": "2025-01-09",
+      "nombre_slides": 10,
+      "hashtag": ["#hashtag1", "#hashtag2", "#hashtag3"],
+      "image": "https://picsum.photos/600/400?random=9"
     },
     {
       "id": 10,
       "titre": "Diaporama 10",
       "description": "Description 10",
-      "image": "image10.jpg"
+      "date_creation": "2022-12-07",
+      "nombre_slides": 10,
+      "hashtag": ["#hashtag1", "#hashtag2", "#hashtag3"],
+      "image": "https://picsum.photos/600/400?random=10"
     },
     {
       "id": 11,
       "titre": "Diaporama 11",
       "description": "Description 11",
-      "image": "image11.jpg"
+      "date_creation": "2025-01-11",
+      "nombre_slides": 10,
+      "hashtag": ["#hashtag1", "#hashtag2", "#hashtag3"],
+      "image": "https://picsum.photos/600/400?random=11"
     },
     {
       "id": 12,
       "titre": "Diaporama 12",
       "description": "Description 12",
-      "image": "image12.jpg"
+      "date_creation": "2025-01-12",
+      "nombre_slides": 10,
+      "hashtag": ["#hashtag1", "#hashtag2", "#hashtag3"],
+      "image": "https://picsum.photos/600/400?random=12"
     },
     {
       "id": 13,
       "titre": "Diaporama 13",
       "description": "Description 13",
-      "image": "image13.jpg"
+      "date_creation": "2025-01-12",
+      "nombre_slides": 10,
+      "hashtag": ["#hashtag1", "#hashtag2", "#hashtag3"],
+      "image": "https://picsum.photos/600/400?random=13"
     },
     {
       "id": 14,
       "titre": "Diaporama 14",
       "description": "Description 14",
-      "image": "image14.jpg"
+      "date_creation": "2025-01-12",
+      "nombre_slides": 10,
+      "hashtag": ["#hashtag1", "#hashtag2", "#hashtag3"],
+      "image": "https://picsum.photos/600/400?random=14"
     },
     {
       "id": 15,
       "titre": "Diaporama 15",
       "description": "Description 15",
-      "image": "image15.jpg"
+      "date_creation": "2025-01-12",
+      "nombre_slides": 10,
+      "hashtag": ["#hashtag1", "#hashtag2", "#hashtag3"],
+      "image": "https://picsum.photos/600/400?random=15"
     }
   ]
 }

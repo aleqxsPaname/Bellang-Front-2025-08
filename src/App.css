@@ -202,39 +202,12 @@ header {
     align-items: center; /* Centrer horizontalement tous les enfants */
   }
 
-  .gallery-item {
-    width: 99% !important; /* Miniatures plus larges en mobile avec !important */
-    margin: 0 auto; /* Centrage automatique maintenu */
-    padding: 8px; /* Réduire le padding en mobile pour plus d'espace */
-    gap: 6px; /* Réduire l'espacement entre les éléments en mobile */
-  }
+  /* Styles mobile de .gallery-item déplacés vers miniatureBloc.css */
 }
 
-.gallery-item {
-  background-color: #fff;
-  height: 240px;
-  width: 90%;
-  margin: 0 auto;
-  display: grid;
-  grid-template-rows: auto auto 1fr;
-  gap: 8px;
-  align-items: start;
-  justify-items: center;
-  border: 1px solid #ccc;
-  cursor: pointer;
-  border-radius: 4px;
-  font-size: 12px;
-  text-align: center;
-  transition: all 0.2s ease;
-  box-sizing: border-box;
-  padding: 12px;
-}
+/* Styles de .gallery-item déplacés vers miniatureBloc.css */
 
-.gallery-item:hover {
-  border-color: #007bff;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+/* Styles hover de .gallery-item déplacés vers miniatureBloc.css */
 
 .filter-bar {
   background-color: lightgreen;
