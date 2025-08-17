@@ -1,35 +1,53 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import Header from "./components/header/Header.tsx";
+import Sidebar from "./components/sidebar/Sidebar.tsx";
+import FilterBar from "./components/filterBar/FilterBar.tsx";
+import Player from "./components/player/Player.tsx";
+import Gallery from "./components/gallery/Gallery.tsx";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App: React.FC = () => {
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  const [selectedSlide, setSelectedSlide] = useState<number | null>(null);
+  const [selectedFilter, setSelectedFilter] = useState<string>("");
+
+  // Auto-scroll vers le Player quand une miniature est sélectionnée
+  useEffect(() => {
+    if (selectedSlide !== null) {
+      // Délai de 100ms pour laisser le Player s'afficher
+      setTimeout(() => {
+        const playerElement = document.querySelector(".player");
+        if (playerElement) {
+          playerElement.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      }, 100);
+    }
+  }, [selectedSlide]);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className={`app-container ${!menuOpen ? "sidebar-hidden" : ""}`}>
+      <Header />
+      <Sidebar isOpen={menuOpen} />
+      <div className="content-area">
+        <Player
+          selected={selectedSlide}
+          onClose={() => setSelectedSlide(null)}
+        />
+        <FilterBar
+          selectedFilter={selectedFilter}
+          onFilterSelect={setSelectedFilter}
+        />
+        <Gallery onSelect={setSelectedSlide} selectedFilter={selectedFilter} />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
 
-export default App
+      <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)}>
+        ☰
+      </button>
+    </div>
+  );
+};
+
+export default App;

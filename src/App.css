@@ -1,42 +1,516 @@
-#root {
-  max-width: 1280px;
+/* App.css */
+
+/* Variables CSS */
+:root {
+  --header-height: 60px; /* Hauteur optimisée du header */
+}
+
+/* Reset général pour éviter les problèmes d'overflow */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+/* Éliminer les marges/padding par défaut qui peuvent créer des espaces */
+header,
+.content-area,
+.player,
+.filter-bar,
+.gallery-section {
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* Préserver le padding interne des composants */
+header {
+  padding: 15px 20px !important;
+}
+
+.player {
+  padding: 15px !important;
+}
+
+/* Retiré le padding global avec !important pour permettre les media queries */
+
+/* Layout principal */
+.app-container {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidebar content";
+  grid-template-columns: 250px 1fr; /* Sidebar fixe à 250px, contenu prend le reste */
+  grid-template-rows: 60px auto; /* Header fixe à 60px, contenu auto pour éviter l'expansion */
+  grid-gap: 0; /* Éliminer tout espace entre les zones du grid */
+  min-height: 100vh; /* Changé de 'height' à 'min-height' pour permettre au contenu de grandir */
+  width: 100%;
+  max-width: 100vw;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  transition: grid-template-columns 0.3s ease;
+}
+
+.app-container.sidebar-hidden {
+  grid-template-areas:
+    "header"
+    "content";
+  grid-template-columns: 1fr;
+  grid-template-rows: 60px auto; /* Même structure que quand la sidebar est visible */
+}
+
+.app-container.sidebar-hidden header,
+.app-container.sidebar-hidden .filter-bar,
+.app-container.sidebar-hidden .gallery-section,
+.app-container.sidebar-hidden .player {
+  width: 100%;
+}
+
+.content-area {
+  grid-area: content;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow-x: hidden;
+  margin: 0; /* Éliminer toute marge */
+  padding: 0; /* Éliminer tout padding */
+  gap: 0; /* Éliminer tout espace entre les enfants flex */
+  /* Retiré overflow-y pour permettre le scroll global */
+}
+
+/* Zones */
+header {
+  grid-area: header;
+  background-color: lightblue;
+  padding: 15px 20px;
+  position: relative;
+  z-index: 1001;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  height: 60px; /* Hauteur fixe uniforme sur tous les écrans (mobile + 30%) */
+  margin: 0; /* Éliminer toute marge */
+}
+
+/* Responsive header - même hauteur, padding adapté */
+@media (min-width: 1200px) {
+  header {
+    padding: 15px 30px !important; /* Plus de padding horizontal sur grands écrans */
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 15px 15px !important; /* Padding horizontal réduit sur mobile/tablette */
+  }
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background-color: lightcoral;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  height: auto; /* Changé pour s'adapter au contenu sans forcer la hauteur */
+  overflow-y: visible; /* Changé de auto à visible pour le scroll global */
+  transition: all 0.3s ease;
+}
+
+.sidebar:not(.open) {
+  display: none;
+}
+
+.sidebar.open {
+  display: flex;
+}
+
+.sidebar-section {
+  margin-bottom: 20px;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-menu li {
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+.sidebar-menu li:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding-left: 5px;
+  transition: all 0.2s ease;
+}
+
+.gallery-section {
+  background-color: #f5f5f5;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.gallery-title {
+  font-weight: bold;
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Ordinateur : 4 colonnes */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 0 15px;
+}
+
+/* Tablette : 2 colonnes */
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile : 1 colonne */
+@media (max-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    padding: 0; /* Supprimer le padding horizontal pour un centrage parfait */
+    justify-items: center; /* Centrer les éléments de la grille */
+    width: 100%; /* S'assurer que la grille prend toute la largeur disponible */
+    max-width: 100%; /* Limiter la largeur maximale */
+  }
+
+  .gallery-section {
+    padding: 10px 0; /* Supprimer le padding horizontal, garder seulement le vertical */
+    display: flex; /* Utiliser flexbox pour un meilleur contrôle du centrage */
+    flex-direction: column; /* Empiler les éléments verticalement */
+    align-items: center; /* Centrer horizontalement tous les enfants */
+  }
+
+  .gallery-item {
+    width: 99% !important; /* Miniatures plus larges en mobile avec !important */
+    margin: 0 auto; /* Centrage automatique maintenu */
+  }
+}
+
+.gallery-item {
+  background-color: #fff;
+  height: 240px;
+  width: 90%;
   margin: 0 auto;
-  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 12px;
   text-align: center;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.gallery-item:hover {
+  border-color: #007bff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-@keyframes logo-spin {
+.filter-bar {
+  background-color: lightgreen;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  gap: 12px; /* Légèrement augmenté pour plus d'air */
+  align-items: center;
+  /* Retiré flex-wrap: wrap pour forcer une seule ligne */
+  overflow-x: auto; /* Scroll horizontal comme YouTube */
+  overflow-y: hidden; /* Pas de scroll vertical */
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  /* Style de scrollbar comme YouTube */
+  scrollbar-width: none; /* cache la scrollbar sur Firefox */
+  scrollbar-color: #c1c1c1 transparent;
+  -webkit-overflow-scrolling: touch; /* Smooth scroll sur mobile */
+
+  user-select: none; /* Empêche la sélection de texte pendant le drag */
+}
+
+/* Marges sur desktop seulement pour éviter la superposition avec les boutons */
+@media (min-width: 769px) {
+  .filter-bar {
+    padding: 10px 60px !important; /* Marges pour les boutons sur desktop */
+  }
+}
+
+/* Padding normal sur mobile et tablette - scroll tactile/molette disponible */
+@media (max-width: 768px) {
+  .filter-bar {
+    padding: 10px !important; /* Padding normal sans marges */
+  }
+}
+
+/* Scrollbar style pour WebKit (Chrome, Safari) */
+.filter-bar::-webkit-scrollbar {
+  height: 6px;
+}
+
+.filter-bar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.filter-bar::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.filter-bar::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
+}
+
+/* Container wrapper pour la FilterBar avec boutons */
+.filter-bar-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Boutons de scroll style YouTube */
+.scroll-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.2s ease;
+  opacity: 0;
+  animation: fadeIn 0.2s ease forwards;
+}
+
+.scroll-button:hover {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.scroll-button-left {
+  left: 8px;
+}
+
+.scroll-button-right {
+  right: 8px;
+}
+
+.scroll-button-icon {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  line-height: 1;
+}
+
+/* Animation d'apparition */
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(-50%) scale(0.8);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+/* Masquer les boutons sur mobile et tablette */
+@media (max-width: 768px) {
+  .scroll-button {
+    display: none !important;
   }
 }
 
-.card {
-  padding: 2em;
+/* Afficher les boutons seulement sur desktop */
+@media (min-width: 769px) {
+  .scroll-button {
+    display: flex;
+  }
 }
 
-.read-the-docs {
-  color: #888;
+.filtre-item {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 6px 12px; /* Réduit de 8px 16px à 6px 12px */
+  border-radius: 8px; /* Plus arrondi comme YouTube */
+  cursor: pointer;
+  font-size: 12px; /* Réduit de 14px à 12px */
+  font-weight: 500; /* Légèrement plus bold */
+  transition: all 0.2s ease;
+  white-space: nowrap; /* Empêche le retour à la ligne */
+  flex-shrink: 0; /* Empêche la compression */
+  min-width: fit-content; /* Largeur minimale basée sur le contenu */
+  user-select: none; /* Empêche la sélection du texte */
+}
+
+.filtre-item:hover {
+  background-color: #e0e0e0;
+  border-color: #999;
+}
+
+.filtre-item.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #0056b3;
+}
+
+.filtre-item.active:hover {
+  background-color: #0056b3;
+}
+
+.main {
+  background-color: lightgray;
+  padding: 10px;
+  /* Retiré flex: 1 et overflow-y: auto pour permettre le scroll global */
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.player {
+  background-color: #800a97;
+  color: white;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  font-size: 16px;
+  text-align: center;
+  height: 460px; /* Hauteur fixe au lieu de min-height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  transition: all 0.3s ease;
+  margin: 0; /* Éliminer toute marge */
+}
+
+.player-hidden {
+  display: none; /* Disparition complète du Player */
+}
+
+.boutonFermer {
+  position: absolute;
+  top: 10px;
+  right: 35px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  opacity: 1;
+}
+
+.boutonFermer:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.05);
+}
+
+/* Responsive basique */
+@media (max-width: 768px) {
+  .app-container {
+    grid-template-areas:
+      "header"
+      "content";
+    grid-template-columns: 1fr;
+    grid-template-rows: 60px auto; /* Header fixe même en mobile */
+    grid-gap: 0; /* Maintenir l'absence d'espace en mobile */
+  }
+
+  .app-container.sidebar-hidden {
+    grid-template-areas:
+      "header"
+      "content";
+    grid-template-columns: 1fr;
+    grid-template-rows: 60px auto; /* Header fixe même en mobile */
+    grid-gap: 0; /* Maintenir l'absence d'espace en mobile */
+  }
+
+  .sidebar {
+    position: fixed;
+    top: var(--header-height); /* Commence sous le header */
+    left: 0;
+    width: 60%;
+    height: calc(
+      100vh - var(--header-height)
+    ); /* Hauteur ajustée pour exclure le header */
+    z-index: 1000;
+    background-color: lightcoral;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .sidebar:not(.open) {
+    display: flex; /* Override desktop display:none for mobile */
+    transform: translateX(-100%);
+  }
+
+  .sidebar.open {
+    display: flex;
+    transform: translateX(0);
+  }
+}
+
+/* Menu button */
+.menu-button {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1001;
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 12px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: block;
+  font-size: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.menu-button:hover {
+  background-color: #555;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
