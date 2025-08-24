@@ -1,0 +1,20 @@
+{
+  "version": {
+    "langue": "EN",
+    "titre": "At the baker in Paris",
+    "description": "Buy a baguette of bread in a Parisian bakery",
+    "phrases": [
+      "Hello Sir, what can I do for you?",
+      "I would like a baguette of bread",
+      "Here is your baguette of bread, and with this would you like anything else.",
+      "Yes I would like two croissants please.",
+      "That's all?",
+      "Yes",
+      "That will be 4 euros and 10 cents. Would you like to pay in cash or by card?",
+      "By card, contactless please.",
+      "The customer pays with their card.",
+      "Have a nice day, see you tomorrow",
+      "Have a nice day Sir."
+    ]
+  }
+}

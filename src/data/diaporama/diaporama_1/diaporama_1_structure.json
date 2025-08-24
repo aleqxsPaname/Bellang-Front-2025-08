@@ -1,0 +1,20 @@
+{
+  "structure": {
+    "id": 1,
+    "date_creation": "2025-11-01",
+    "nombre_slides": 10,
+    "hashtag": ["#debutant", "#vieQuotidienne"],
+    "images": [
+      "https://picsum.photos/600/400?random=1",
+      "https://picsum.photos/600/400?random=2",
+      "https://picsum.photos/600/400?random=3",
+      "https://picsum.photos/600/400?random=4",
+      "https://picsum.photos/600/400?random=5",
+      "https://picsum.photos/600/400?random=6",
+      "https://picsum.photos/600/400?random=7",
+      "https://picsum.photos/600/400?random=8",
+      "https://picsum.photos/600/400?random=9",
+      "https://picsum.photos/600/400?random=10"
+    ]
+  }
+}

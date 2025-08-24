@@ -1,0 +1,19 @@
+{
+  "version": {
+    "langue": "FR",
+    "titre": "Les 10 plus beaux monuments de Paris",
+    "description": "Les 10 plus beaux monuments de Paris que vous ne devez pas manquer",
+    "phrases": [
+      "1/ La Tour Eiffel, Construite en 1889, est le monument le plus célèbre de Paris.",
+      "2/ Le Louvre, le plus grand musée d'art de France, est situé à Paris.",
+      "3/ Notre-Dame de Paris, une église gothique, est un symbole de la ville.",
+      "4/ Le Sacré-Cœur, un monument religieux, offre une vue imprenable sur la ville.",
+      "5/ La Seine, la rivière qui traverse la ville, est un lieu de détente et de périple.",
+      "6/ Les jardins du Luxembourg, un espace vert et paisible, sont un refuge pour les parisiens.",
+      "7/ Le Palais Garnier, un opéra historique, est un symbole de la culture parisienne.",
+      "8/ Le Pont Alexandre III, un pont emblématique, offre une vue spectaculaire sur la Seine.",
+      "9/ Le Musée d'Orsay, un musée d'art moderne, est un lieu de culture et d'art.",
+      "10/ Le Palais de la Découverte, un musée scientifique, est un lieu de découverte et d'apprentissage."
+    ]
+  }
+}

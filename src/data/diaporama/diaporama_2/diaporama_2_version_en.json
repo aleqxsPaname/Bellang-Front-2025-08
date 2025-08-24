@@ -1,0 +1,19 @@
+{
+  "version": {
+    "langue": "EN",
+    "titre": "The 10 most beautiful monuments in Paris",
+    "description": "The 10 most beautiful monuments in Paris that you must not miss",
+    "phrases": [
+      "1/ The Eiffel Tower, built in 1889, is the most famous monument in Paris.",
+      "2/ The Louvre, the largest art museum in France, is located in Paris.",
+      "3/ Notre-Dame de Paris, a Gothic church, is a symbol of the city.",
+      "4/ The Sacré-Cœur, a religious monument, offers a breathtaking view of the city.",
+      "5/ The Seine, the river that runs through the city, is a place for relaxation and strolling.",
+      "6/ The Luxembourg Gardens, a green and peaceful space, are a refuge for Parisians.",
+      "7/ The Palais Garnier, a historic opera house, is a symbol of Parisian culture.",
+      "8/ The Pont Alexandre III, an iconic bridge, offers a spectacular view of the Seine.",
+      "9/ The Musée d'Orsay, a museum of modern art, is a place of culture and art.",
+      "10/ The Palais de la Découverte, a science museum, is a place of discovery and learning."
+    ]
+  }
+}
