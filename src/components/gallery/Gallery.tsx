@@ -1,7 +1,7 @@
 import React from "react";
 import Miniature from "./Miniature.tsx";
-import listeDiaporama from "../../data/diaporamas/listeDiaporama.json";
-import type { Diaporama } from "../../data/diaporamas/diaporama";
+import listeDiaporama from "../../data/dataSet/diaporamas/listeDiaporama.json";
+import type { Diaporama } from "../../data/model/diaporama.tsx";
 
 type GalleryProps = {
   onSelect: (id: number) => void;

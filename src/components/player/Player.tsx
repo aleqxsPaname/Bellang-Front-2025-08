@@ -1,11 +1,11 @@
 import React from "react";
 import {
   useDiaporamaStructure,
-  DiaporamaStructure,
+  type DiaporamaStructure,
 } from "../../data/services/useDiaporamaStructure";
 import {
   useDiaporamaVersionUne,
-  Version,
+  type Version,
 } from "../../data/services/useDiaporamaVersionUne";
 
 type PlayerProps = {

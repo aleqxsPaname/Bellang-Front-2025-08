@@ -1,7 +1,7 @@
 import React from "react";
 import MiniatureImageBloc from "./MiniatureImageBloc";
 import MiniatureTextBloc from "./MiniatureTextBloc";
-import type { Diaporama } from "../../data/diaporamas/diaporama";
+import type { Diaporama } from "../../data/model/diaporama.tsx";
 import "./miniatureBloc.css";
 
 type MiniatureProps = {

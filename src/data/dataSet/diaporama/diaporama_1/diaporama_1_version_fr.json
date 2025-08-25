@@ -1,0 +1,20 @@
+{
+  "version": {
+    "langue": "FR",
+    "titre": "Chez le boulanger à Paris",
+    "description": "Acheter un baguette de pain dans une boulangerie parisienne",
+    "phrases": [
+      "Bonjour Monsieur, que puis je faire pour vous ?",
+      "je voudrais un baguette de pain",
+      "Voici votre baguette de pain, et avec ceci desirez vous autre chose.",
+      "Oui je vais prendre deux pains au chocolat s'il vous plait.'",
+      "Ce sera tout?",
+      "Oui",
+      "Cela vous fait 4 euros et 10 centimes. Vous souhaitez payer en liquide ou par carte ?",
+      "Par carte, en sans contact s'il vous plait.",
+      "Le Client paye avec sa carte.",
+      "Bonne journée, à demain",
+      "Bonne journée Monsieur."
+    ]
+  }
+}

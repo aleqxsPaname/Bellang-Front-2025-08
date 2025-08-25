@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import ScrollButton from "./ScrollButton";
 import Filtre from "./Filtre";
-import filterData from "../../data/filters/filterData.json";
+import filterData from "../../data/dataSet/filters/filterData.json";
 
 type FilterBarProps = {
   selectedFilter: string;

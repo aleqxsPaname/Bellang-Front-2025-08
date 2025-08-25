@@ -15,7 +15,7 @@ export async function getStructure(
 
   try {
     const module = await import(
-      `../../data/diaporama/diaporama_${selected}/diaporama_${selected}_structure.json`
+      `../../data/dataSet/diaporama/diaporama_${selected}/diaporama_${selected}_structure.json`
     );
     return module.structure as DiaporamaStructure;
   } catch (error) {
