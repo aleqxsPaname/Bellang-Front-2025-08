@@ -14,7 +14,7 @@ export async function getVersionUne(
 
   try {
     const module = await import(
-      `../../data/dataSet/diaporama/diaporama_${selected}/diaporama_${selected}_version_en.json`
+      `../../../data/dataSet/diaporama/diaporama_${selected}/diaporama_${selected}_version_en.json`
     );
     return module.version as Version;
   } catch (error) {

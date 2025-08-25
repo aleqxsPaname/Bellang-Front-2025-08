@@ -2,11 +2,11 @@ import React from "react";
 import {
   useDiaporamaStructure,
   type DiaporamaStructure,
-} from "../../data/services/useDiaporamaStructure";
+} from "../../data/services/structureDuDiaporama/useDiaporamaStructure";
 import {
   useDiaporamaVersionUne,
   type Version,
-} from "../../data/services/useDiaporamaVersionUne";
+} from "../../data/services/versionDuDiaporama/useDiaporamaVersionUne";
 
 type PlayerProps = {
   selected: number | null;
