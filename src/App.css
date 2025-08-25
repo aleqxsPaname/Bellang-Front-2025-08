@@ -386,21 +386,186 @@ header {
   border-bottom: 1px solid #ddd;
   font-size: 16px;
   text-align: center;
-  height: 460px; /* Hauteur fixe au lieu de min-height */
+  min-height: 300px; /* Hauteur minimale réduite pour mobile */
+  height: auto; /* S'adapte automatiquement au contenu */
   display: flex;
+  flex-direction: column; /* Empile les éléments verticalement */
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* Aligne au début pour éviter l'étirement */
   position: relative;
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
-  overflow-x: hidden;
+  overflow: visible; /* Pas de scroll interne */
   transition: all 0.3s ease;
   margin: 0; /* Éliminer toute marge */
 }
 
 .player-hidden {
   display: none; /* Disparition complète du Player */
+}
+
+/* Styles spécifiques pour le carrousel dans le Player */
+.player .carousel-container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.player .slide-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+/* Optimisation de l'affichage des éléments du carrousel */
+.player .slide-container {
+  width: 100%;
+  max-width: 800px; /* Limite la largeur maximale pour une meilleure lisibilité */
+}
+
+/* Styles responsifs pour les slides */
+@media (max-width: 768px) {
+  .player .slide-container {
+    max-width: 100% !important; /* Utiliser toute la largeur sur mobile */
+    width: 100% !important;
+    margin: 0 !important;
+    border-radius: 0 !important; /* Supprimer les coins arrondis sur mobile */
+  }
+
+  .player .slide-container img {
+    height: auto !important; /* Hauteur automatique pour éviter la déformation */
+    width: 100% !important; /* Largeur 100% sur mobile */
+    border-radius: 0 !important; /* Supprimer les coins arrondis sur mobile */
+    object-fit: contain; /* Garder les proportions de l'image sans couper */
+  }
+
+  .player .slide-container .bg-gray-50 {
+    padding: 0.75rem !important; /* Padding réduit sur mobile */
+  }
+
+  .player .slide-container .text-sm {
+    font-size: 0.875rem !important; /* Taille de texte réduite sur mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .player .slide-container {
+    max-width: 100vw !important; /* Utiliser toute la largeur de la fenêtre */
+    width: 100vw !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important; /* Supprimer l'ombre sur très petits écrans */
+  }
+
+  .player .slide-container img {
+    height: auto !important; /* Hauteur automatique pour éviter la déformation */
+    width: 100vw !important; /* Largeur 100% de la fenêtre */
+    border-radius: 0 !important;
+    object-fit: contain; /* Garder les proportions de l'image sans couper */
+  }
+
+  .player .slide-container .bg-gray-50 {
+    padding: 0.5rem !important; /* Padding minimal sur très petits écrans */
+  }
+
+  .player .slide-container .text-sm {
+    font-size: 0.75rem !important; /* Taille de texte minimale sur très petits écrans */
+  }
+}
+
+/* Espacement optimisé pour les indicateurs de navigation */
+.player .carousel-container > div:last-child {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Styles responsifs pour les boutons de navigation */
+@media (max-width: 768px) {
+  .player .carousel-container button[aria-label*="Slide précédent"],
+  .player .carousel-container button[aria-label*="Slide suivant"] {
+    width: 40px !important; /* Boutons plus petits sur mobile */
+    height: 40px !important;
+    left: 2px !important; /* Position ajustée sur mobile */
+    right: 2px !important;
+  }
+
+  .player .carousel-container button[aria-label*="Slide précédent"] svg,
+  .player .carousel-container button[aria-label*="Slide suivant"] svg {
+    width: 20px !important; /* Icônes plus petites sur mobile */
+    height: 20px !important;
+  }
+
+  .player .carousel-container button[aria-label*="Aller au slide"] {
+    width: 32px !important; /* Indicateurs plus petits sur mobile */
+    height: 32px !important;
+    font-size: 0.75rem !important; /* Texte plus petit sur mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .player .carousel-container button[aria-label*="Slide précédent"],
+  .player .carousel-container button[aria-label*="Slide suivant"] {
+    width: 36px !important; /* Boutons encore plus petits sur très petits écrans */
+    height: 36px !important;
+    left: 1px !important; /* Position très proche des bords */
+    right: 1px !important;
+  }
+
+  .player .carousel-container button[aria-label*="Aller au slide"] {
+    width: 28px !important; /* Indicateurs très petits sur très petits écrans */
+    height: 28px !important;
+    font-size: 0.625rem !important; /* Texte minimal sur très petits écrans */
+  }
+}
+
+/* Styles responsifs pour le Player */
+@media (max-width: 768px) {
+  .player {
+    min-height: 200px; /* Hauteur minimale encore plus réduite sur mobile */
+    padding: 0; /* Supprimer le padding sur mobile pour utiliser toute la largeur */
+  }
+
+  .player .slide-container {
+    max-width: 100%; /* Utiliser toute la largeur sur mobile */
+  }
+
+  .player .carousel-container {
+    padding: 0; /* Supprimer le padding sur mobile */
+    width: 100vw; /* Utiliser toute la largeur de la fenêtre */
+    max-width: 100vw;
+  }
+
+  .player .slide-wrapper {
+    margin-bottom: 0.5rem; /* Espacement réduit sur mobile */
+    width: 100vw; /* Utiliser toute la largeur de la fenêtre */
+    max-width: 100vw;
+  }
+
+  .player .carousel-container > div:last-child {
+    margin-top: 1rem; /* Espacement réduit sur mobile */
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .player {
+    min-height: 150px; /* Hauteur minimale très réduite sur très petits écrans */
+    padding: 0; /* Supprimer le padding sur très petits écrans */
+  }
+
+  .player .carousel-container {
+    padding: 0; /* Supprimer le padding sur très petits écrans */
+    width: 100vw; /* Utiliser toute la largeur de la fenêtre */
+    max-width: 100vw;
+  }
+
+  .player .slide-wrapper {
+    width: 100vw; /* Utiliser toute la largeur de la fenêtre */
+    max-width: 100vw;
+  }
 }
 
 .boutonFermer {
