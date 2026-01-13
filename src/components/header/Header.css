@@ -1,0 +1,79 @@
+/* Zones */
+
+header,
+.content-area {
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding: 15px 20px !important;
+}
+
+header {
+  grid-area: header;
+  background-color: lightblue;
+  padding: 15px 20px;
+  position: relative;
+  z-index: 1001;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  height: 60px; /* Hauteur fixe uniforme sur tous les écrans (mobile + 30%) */
+  margin: 0; /* Éliminer toute marge */
+}
+
+/* Boutons de scroll horizontal style YouTube */
+.scroll-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.2s ease;
+  opacity: 0;
+  animation: fadeIn 0.2s ease forwards;
+}
+
+.scroll-button:hover {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.scroll-button-left {
+  left: 8px;
+}
+
+.scroll-button-right {
+  right: 8px;
+}
+
+.scroll-button-icon {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  line-height: 1;
+}
+
+/* Responsive header - même hauteur, padding adapté */
+@media (min-width: 1200px) {
+  header {
+    padding: 15px 30px !important; /* Plus de padding horizontal sur grands écrans */
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 15px 15px !important; /* Padding horizontal réduit sur mobile/tablette */
+  }
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import listeFavoritesData from "../../data/dataSet/listesFavorites/listeFavoritesData.json";
+import "./Sidebar.css";
 
 type SidebarProps = {
   isOpen: boolean;

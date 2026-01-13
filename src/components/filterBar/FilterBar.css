@@ -1,0 +1,93 @@
+/* Éliminer les marges/padding par défaut qui peuvent créer des espaces */
+.filter-bar {
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.filter-bar {
+  background-color: lightgreen;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  gap: 12px; /* Légèrement augmenté pour plus d'air */
+  align-items: center;
+  /* Retiré flex-wrap: wrap pour forcer une seule ligne */
+  overflow-x: auto; /* Scroll horizontal comme YouTube */
+  overflow-y: hidden; /* Pas de scroll vertical */
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  /* Style de scrollbar comme YouTube */
+  scrollbar-width: none; /* cache la scrollbar sur Firefox */
+  scrollbar-color: #c1c1c1 transparent;
+  -webkit-overflow-scrolling: touch; /* Smooth scroll sur mobile */
+
+  user-select: none; /* Empêche la sélection de texte pendant le drag */
+}
+
+/* Marges sur desktop seulement pour éviter la superposition avec les boutons */
+@media (min-width: 769px) {
+  .filter-bar {
+    padding: 10px 60px !important; /* Marges pour les boutons sur desktop */
+  }
+}
+
+/* Padding normal sur mobile et tablette - scroll tactile/molette disponible */
+@media (max-width: 768px) {
+  .filter-bar {
+    padding: 10px !important; /* Padding normal sans marges */
+  }
+}
+
+/* Scrollbar style pour WebKit (Chrome, Safari) */
+.filter-bar::-webkit-scrollbar {
+  height: 6px;
+}
+
+.filter-bar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.filter-bar::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.filter-bar::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
+}
+
+/* ------------------------------------------------ */
+/* Styles de .filtre-item déplacés vers FilterBar.css */
+
+.filtre-item {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 6px 12px; /* Réduit de 8px 16px à 6px 12px */
+  border-radius: 8px; /* Plus arrondi comme YouTube */
+  cursor: pointer;
+  font-size: 12px; /* Réduit de 14px à 12px */
+  font-weight: 500; /* Légèrement plus bold */
+  transition: all 0.2s ease;
+  white-space: nowrap; /* Empêche le retour à la ligne */
+  flex-shrink: 0; /* Empêche la compression */
+  min-width: fit-content; /* Largeur minimale basée sur le contenu */
+  user-select: none; /* Empêche la sélection du texte */
+}
+
+.filtre-item:hover {
+  background-color: #e0e0e0;
+  border-color: #999;
+}
+
+.filtre-item.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #0056b3;
+}
+
+.filtre-item.active:hover {
+  background-color: #0056b3;
+}

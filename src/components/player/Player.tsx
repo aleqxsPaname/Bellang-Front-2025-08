@@ -2,6 +2,7 @@ import React, { useState, useMemo } from "react";
 import { useDiaporamaStructure } from "../../data/services/structureDuDiaporama/useDiaporamaStructure";
 import { useDiaporamaVersionUne } from "../../data/services/versionDuDiaporama/useDiaporamaVersionUne";
 import Carousel from "./carousel/Carousel";
+import "./Player.css";
 
 type PlayerProps = {
   selected: number | null;

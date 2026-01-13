@@ -37,57 +37,23 @@ const Carousel: React.FC<CarouselProps> = ({
   const isLastSlide = currentIndex === slides.length - 1;
 
   return (
-    <div className="carousel-container relative">
+    <div className="carousel-container">
       {/* Bouton Précédent */}
       <button
         onClick={onPrevious}
         disabled={isFirstSlide}
-        className={`absolute left-4 top-1/2 transform -translate-y-1/2 z-10 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-200 ${
-          isFirstSlide
-            ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-            : "bg-blue-600 text-white hover:bg-blue-700 shadow-lg hover:scale-110"
-        }`}
         aria-label="Slide précédent"
       >
-        <svg
-          className="w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M15 19l-7-7 7-7"
-          />
-        </svg>
+        PRECEDENT
       </button>
 
       {/* Bouton Suivant */}
       <button
         onClick={onNext}
         disabled={isLastSlide}
-        className={`absolute right-4 top-1/2 transform -translate-y-1/2 z-10 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-200 ${
-          isLastSlide
-            ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-            : "bg-blue-600 text-white hover:bg-blue-700 shadow-lg hover:scale-110"
-        }`}
         aria-label="Slide suivant"
       >
-        <svg
-          className="w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M9 5l7 7-7 7"
-          />
-        </svg>
+        SUIVANT
       </button>
 
       {/* Slide actuel */}
@@ -107,6 +73,7 @@ const Carousel: React.FC<CarouselProps> = ({
             key={index}
             type="button"
             onClick={() => onSlideChange(index)}
+            style={{ border: "2px solid #800a97" }}
             className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-medium transition-all duration-200 ${
               index === currentIndex
                 ? "bg-blue-600 text-white scale-110 shadow-lg"

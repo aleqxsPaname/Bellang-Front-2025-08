@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import ScrollButton from "./ScrollButton";
 import Filtre from "./Filtre";
 import filterData from "../../data/dataSet/filters/filterData.json";
+import "./FilterBar.css";
 
 type FilterBarProps = {
   selectedFilter: string;
