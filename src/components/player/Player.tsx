@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from "react";
 import { useDiaporamaStructure } from "../../data/services/structureDuDiaporama/useDiaporamaStructure";
-import { useDiaporamaVersion } from "../../data/services/versionDuDiaporama/useDiaporamaVersionUne";
+import { useDiaporamaVersion } from "../../data/services/versionDuDiaporama/useDiaporamaVersion";
 import Carousel from "./carousel/Carousel";
 import "./Player.css";
 
