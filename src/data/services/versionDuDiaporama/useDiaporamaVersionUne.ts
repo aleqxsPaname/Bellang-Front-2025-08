@@ -12,35 +12,35 @@ export function useDiaporamaVersion(
   selected: number | null,
   langue: string = "en"
 ) {
-  const [diaporamaVersionUne, setDiaporamaVersionUne] =
+  const [diaporamaVersion, setDiaporamaVersion] =
     useState<Version | null>(null);
-  const [loadingVersionUne, setLoadingVersionUne] = useState(false);
-  const [errorVersionUne, setErrorVersionUne] = useState<string | null>(null);
+  const [loadingVersion, setLoadingVersion] = useState(false);
+  const [errorVersion, setErrorVersion] = useState<string | null>(null);
 
   useEffect(() => {
     if (!selected) {
-      setDiaporamaVersionUne(null);
+      setDiaporamaVersion(null);
       return;
     }
 
     const fetch = async () => {
-      setLoadingVersionUne(true);
-      setErrorVersionUne(null);
+      setLoadingVersion(true);
+      setErrorVersion(null);
 
       try {
         const versionUne = await getVersionUne(selected, langue);
-        setDiaporamaVersionUne(versionUne);
+        setDiaporamaVersion(versionUne);
       } catch (err) {
         console.error("Erreur lors du chargement de la version:", err);
-        setErrorVersionUne("Impossible de charger le diaporama");
-        setDiaporamaVersionUne(null);
+        setErrorVersion("Impossible de charger le diaporama");
+        setDiaporamaVersion(null);
       } finally {
-        setLoadingVersionUne(false);
+        setLoadingVersion(false);
       }
     };
 
     fetch();
   }, [selected, langue]);
 
-  return { diaporamaVersionUne, loadingVersionUne, errorVersionUne };
+  return { diaporamaVersionUne: diaporamaVersion, loadingVersionUne: loadingVersion, errorVersionUne: errorVersion };
 }
