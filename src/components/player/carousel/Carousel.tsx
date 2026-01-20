@@ -38,32 +38,34 @@ const Carousel: React.FC<CarouselProps> = ({
 
   return (
     <div className="carousel-container">
-      {/* Bouton Précédent */}
-      <button
-        onClick={onPrevious}
-        disabled={isFirstSlide}
-        aria-label="Slide précédent"
-      >
-        PRECEDENT
-      </button>
-
-      {/* Bouton Suivant */}
-      <button
-        onClick={onNext}
-        disabled={isLastSlide}
-        aria-label="Slide suivant"
-      >
-        SUIVANT
-      </button>
-
-      {/* Slide actuel */}
+      {/* Slide actuel avec boutons superposés */}
       <div className="slide-wrapper">
+        <button
+          type="button"
+          onClick={onPrevious}
+          disabled={isFirstSlide}
+          aria-label="Slide précédent"
+          className="carousel-nav-button prev"
+        >
+          <span aria-hidden="true">&lt;</span>
+        </button>
+
         <Slide
           imageUrl={currentSlide.imageUrl}
           phraseEn={currentSlide.phraseEn}
           slideNumber={currentSlide.slideNumber}
           totalSlides={currentSlide.totalSlides}
         />
+
+        <button
+          type="button"
+          onClick={onNext}
+          disabled={isLastSlide}
+          aria-label="Slide suivant"
+          className="carousel-nav-button next"
+        >
+          <span aria-hidden="true">&gt;</span>
+        </button>
       </div>
 
       {/* Indicateurs de navigation avec numéros */}

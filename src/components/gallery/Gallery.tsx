@@ -1,5 +1,5 @@
 import React from "react";
-import Miniature from "./Miniature.tsx";
+import Miniature from "./miniature/Miniature.tsx";
 import "./gallery.css";
 import listeDiaporama from "../../data/dataSet/diaporamas/listeDiaporama.json";
 import type { Diaporama } from "../../data/model/diaporama.tsx";

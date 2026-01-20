@@ -24,7 +24,7 @@
 /* Ordinateur : 4 colonnes */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 10px;
   padding: 0 15px;
 }
@@ -37,7 +37,7 @@
 }
 
 /* Mobile : 1 colonne */
-@media (max-width: 480px) {
+@media (max-width: 500px) {
   .gallery-grid {
     grid-template-columns: 1fr;
     padding: 0; /* Supprimer le padding horizontal pour un centrage parfait */

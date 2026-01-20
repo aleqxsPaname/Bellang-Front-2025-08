@@ -18,9 +18,6 @@ const Slide: React.FC<SlideProps> = ({
       {/* En-tête avec numéro du slide */}
       <div className="bg-gray-100 px-4 py-2 border-b border-gray-200">
         <div className="flex justify-between items-center">
-          <span className="text-sm font-medium text-gray-600">
-            Slide {slideNumber} sur {totalSlides}
-          </span>
           <div className="flex space-x-1">
             {Array.from({ length: totalSlides }, (_, index) => (
               <div

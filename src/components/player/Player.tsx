@@ -79,10 +79,6 @@ const Player: React.FC<PlayerProps> = ({ selected, onClose }) => {
       {selected && diaporamaStructure && diaporamaVersionUne ? (
         // ICI ON TESTE LE CARROUSEL ! 🎬
         <div>
-          <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">
-            Mode Carrousel - Test
-          </h2>
-
           {slides.length > 0 ? (
             <Carousel
               slides={slides}

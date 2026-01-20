@@ -1,14 +1,8 @@
 /* Zones */
 
-header,
-.content-area {
-  margin: 0;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding: 15px 20px !important;
-}
-
 header {
+  margin: 0;
+  padding: 15px 20px;
   grid-area: header;
   background-color: lightblue;
   padding: 15px 20px;
