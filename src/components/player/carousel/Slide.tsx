@@ -3,6 +3,7 @@ import React from "react";
 type SlideProps = {
   imageUrl: string;
   phraseEn: string;
+  phraseFr: string;
   slideNumber: number;
   totalSlides: number;
 };
@@ -10,6 +11,7 @@ type SlideProps = {
 const Slide: React.FC<SlideProps> = ({
   imageUrl,
   phraseEn,
+  phraseFr,
   slideNumber,
   totalSlides,
 }) => {
@@ -51,6 +53,9 @@ const Slide: React.FC<SlideProps> = ({
           <span className="text-blue-600 font-medium text-sm">EN:</span>
           <p className="text-gray-800 text-sm leading-relaxed flex-1">
             {phraseEn}
+          </p>
+          <p className="text-gray-800 text-sm leading-relaxed flex-1">
+            {phraseFr}
           </p>
         </div>
       </div>

@@ -6,7 +6,8 @@ type Version = {
 };
 
 export async function getVersionUne(
-  selected: number | null
+  selected: number | null,
+  langue: string = "fr"
 ): Promise<Version | null> {
   if (!selected) {
     return null;
@@ -14,7 +15,7 @@ export async function getVersionUne(
 
   try {
     const module = await import(
-      `../../../data/dataSet/diaporama/diaporama_${selected}/diaporama_${selected}_version_en.json`
+      `../../../data/dataSet/diaporama/diaporama_${selected}/diaporama_${selected}_version_${langue}.json`
     );
     return module.version as Version;
   } catch (error) {
